@@ -1,77 +1,42 @@
-// ignore_for_file: sized_box_for_whitespace
-
 import 'package:flutter/material.dart';
-void main() { runApp(const MyApp());}
-class MyApp extends StatelessWidget {
+import 'package:flutter_temel_widgets/image_widgets.dart';
+// ignore: unused_import
+import 'package:flutter_temel_widgets/my_counter_page.dart';
 
-Container containerOlustur(String harf,Color color, {double margin = 0}) {
-  return Container(
-        width: 75,
-        height: 75,
-        alignment: Alignment.center,
-        color: color,
-        child: Text(harf, style: const TextStyle(fontSize: 48, color: Colors.black,),
-        ),
-        );
+void main() {
+  runApp(const MyApp());
 }
-Row dartRowOlustur() {
-  return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-       children: [
-      Container( 
-        child: containerOlustur( 'D' , Colors.green.shade200 ),),
-      Container(    
-          child: containerOlustur( 'A' , Colors.green.shade600 ),),
-      Container(
-          child: containerOlustur( 'R' , Colors.green.shade600 ),),
-      Container(
-        child: containerOlustur( 'T' , Colors.green.shade800 ),),
-    ],);
-  }
-    Column dersleriColumnOlustur() {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-               child: containerOlustur('E', Colors.green.shade400, margin: 15),),
-            Expanded(
-              child: containerOlustur('R', Colors.green.shade600, margin: 15),),
-            Expanded(
-              child: containerOlustur('S', Colors.green.shade800, margin: 15),),
-            Expanded(
-              child: containerOlustur('L', Colors.green.shade600, margin: 15),),
-            Expanded(
-              child: containerOlustur('E', Colors.green.shade400, margin: 15),),
-            Expanded(
-              child: containerOlustur('R', Colors.green.shade200, margin: 15),),
-                 Expanded(
-              child: containerOlustur('I', Colors.green.shade200, margin: 15),),
-          ],);
-          }
+
+class MyApp extends StatelessWidget {
+  //abstract class
   const MyApp({super.key});
-  @override
+  @override //build method for this class
   Widget build(BuildContext context) {
-    return MaterialApp( 
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme : ThemeData( primaryColor: Colors.greenAccent),
+      title: 'My Counter App',
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+        textTheme: const TextTheme(
+            headlineLarge:
+                TextStyle(color: Colors.purple, fontWeight: FontWeight.bold)),
+      ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Flutter Dersleri', style: TextStyle( color: Colors.black, fontWeight:      
-             FontWeight.bold, fontSize: 27)),
-             centerTitle:  
-           true, backgroundColor: Colors.cyanAccent,  
-        ),
-      body: Container(
-        color: Colors.red.shade100,
-        child: Column( 
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              dartRowOlustur(),
-              Expanded(child: dersleriColumnOlustur()),
-            ],
-        ),
-      ),
-      ),
+          title: const Text('Image Ornekleri'),
+          ),
+          body: const ImageOrnekleri(),
+          ),
     );
   }
+}
+
+// ignore: non_constant_identifier_names
+MyNewTextWidget() {}
+@override
+Widget build(BuildContext context) {
+  return const Text(
+    'Butona basılma miktari:',
+    style: TextStyle(fontSize: 24),
+  );
 }
